@@ -58,17 +58,17 @@ Stone Board::WidrawStone(const std::string& stoneId)
 	return res;
 }
 
-void Board::PlaceStoneOnCell(int cellId, Stone&& stone)
+void Board::PlaceStoneOnCell(int cellIndex, Stone&& stone)
 {
 	for (size_t i = 0; i < BOARD_SIZE; i++)
 	{
 		for (size_t j = 0; j < BOARD_SIZE; j++)
 		{
 			auto& cell = _state(i, j);
-			if (cell.GetIndex() == cellId)
+			if (cell.GetIndex() == cellIndex)
 			{
 				if (cell.HasStone())
-					throw std::logic_error(std::format("Cell id=[{}] already contain a stone.", std::to_string(cellId)));
+					throw std::logic_error(std::format("Cell id=[{}] already contain a stone.", std::to_string(cellIndex)));
 
 				cell.SetStone(std::move(stone));
 				return;
@@ -121,8 +121,8 @@ void Board::InitializeStones()
 }
 
 std::vector<std::reference_wrapper<const Stone>> Board::GetStones(
-	std::function<size_t(size_t)> rowIterator,
-	std::function<size_t(size_t)> columnIterator
+	const std::function<size_t(size_t)>& rowIterator,
+	const std::function<size_t(size_t)>& columnIterator
 ) const
 {
 	std::vector<std::reference_wrapper<const Stone>> result;

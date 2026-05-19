@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include <optional>
+#include <iostream>
 
 #include "Stone.h"
 
@@ -7,6 +8,7 @@ class Cell
 {
 public:	
 	Cell();
+	Cell(const Cell&) { std::cout << "COPY ctor\n"; }
 
 	void SetStone(Stone&& stone);
 	const std::optional<Stone>& GetStone() const;

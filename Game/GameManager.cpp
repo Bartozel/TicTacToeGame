@@ -32,13 +32,11 @@ void GameManager::Start(const Setting& setting)
 			auto response = botPlayer.SelectStone();
 			_stoneId = std::string(response.GetId());
 			comm.Annonce({ KeyValue(RESPONSE_CHOSEN_STONE, _stoneId) });
-
 			_cellId = userPlayer.PlaceStone(std::move(response));
 		}
 		else
 		{
 			auto response = userPlayer.SelectStone();
-
 			_stoneId = std::string(response.GetId());
 			_cellId = botPlayer.PlaceStone(std::move(response));
 			comm.Annonce(

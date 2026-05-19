@@ -1,0 +1,4 @@
+- Board - remove duplicit iteration thru whole board
+- Board - find better way to initialize stones
+- GameManager - rewrite Check propertios
+- CommandParser - 

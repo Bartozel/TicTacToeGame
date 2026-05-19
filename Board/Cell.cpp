@@ -7,7 +7,7 @@ _index(0)
 
 void Cell::SetStone(Stone&& stone)
 {
-	_stone = stone;
+	_stone = std::move(stone);
 }
 
 const std::optional<Stone>& Cell::GetStone() const

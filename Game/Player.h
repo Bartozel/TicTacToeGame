@@ -14,5 +14,5 @@ public:
 private:
 	int _id;
 	Board& _board;
-	std::unique_ptr<IPlayerLogic> _logic;
+	std::unique_ptr<IPlayerLogic> _logicModule;
 };

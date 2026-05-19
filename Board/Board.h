@@ -2,7 +2,7 @@
 #include <functional>
 #include <vector>
 #include "Cell.h"
-#include "Data/Matrix.h"
+#include "Data/SquareMatrix.h"
 	
 constexpr size_t BOARD_SIZE = 4;
 
@@ -29,8 +29,8 @@ private:
 	void InitializeState();
 	void InitializeStones();
 	std::vector<std::reference_wrapper<const Stone>> GetStones(
-		std::function<size_t(size_t)> rowIterator,
-		std::function<size_t(size_t)> columnIterator
+		const std::function<size_t(size_t)>& rowIterator,
+		const std::function<size_t(size_t)>& columnIterator
 	) const;
 
 };

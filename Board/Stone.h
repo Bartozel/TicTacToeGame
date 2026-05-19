@@ -1,7 +1,8 @@
 ﻿#pragma once
 #include <string>
+#include <iostream>
 
-#include "Data/Matrix.h"
+#include "Data/SquareMatrix.h"
 #include "Enum/eStoneColor.h"
 #include "Enum/eSymbol.h"
 #include "Enum/eSymbolColor.h"
@@ -13,6 +14,7 @@ class Stone
 {
 public:
 	Stone(eOuterShape outerShape, eStoneColor stoneColor, eSymbol symbol, eSymbolColor symbolColor);
+	Stone(const Stone&) { std::cout << "COPY ctor\n"; }
 
 	eOuterShape GetOuterShape() const;
 	eStoneColor GetStoneColor() const;
